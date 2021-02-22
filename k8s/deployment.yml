@@ -1,22 +1,22 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: iped_jobs
+  name: iped-jobs
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: iped_jobs
+      app.kubernetes.io/name: iped-jobs
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: iped_jobs
+        app.kubernetes.io/name: iped-jobs
     spec:
       containers:
       - image: setecrs/iped_jobs:1.0.0
         imagePullPolicy: IfNotPresent
-        name: iped_jobs
+        name: iped-jobs
         ports:
         - containerPort: 80
           name: http
