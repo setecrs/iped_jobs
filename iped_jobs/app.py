@@ -7,7 +7,7 @@ from flask import Flask, make_response, request
 from flask_restplus import Resource, Api, fields
 from werkzeug.exceptions import BadRequest
 
-from .k8s import K8s, getMetrics
+from .k8s import K8s
 
 DEBUG = ('DEBUG' in os.environ)
 
@@ -55,10 +55,6 @@ def create_app():
                 env = api.payload['env']
             except:
                 raise BadRequest('missing parameters')
-            try:
-                check_request.check_admin(request)
-            except:
-                return make_response('Unauthorized', http.HTTPStatus.UNAUTHORIZED)
             try:
                 env = env2dict(env)
                 return K8s().addJob(image, IPEDJAR, EVIDENCE_PATH, OUTPUT_PATH, IPED_PROFILE, ADD_ARGS, ADD_PATHS, **env)

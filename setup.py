@@ -1,8 +1,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='sardadmin',
-    version='2.5.0',
+    name='iped_jobs',
+    version='1.0.0',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
@@ -12,10 +12,6 @@ setup(
         "flask_restplus",
         "docopt",
         "requests",
-        "ldap3",
-        "kubernetes",
-        "prometheus_client",
-        "pyfakefs",
-        "PyJWT"
+        "kubernetes"
     ],
 )
